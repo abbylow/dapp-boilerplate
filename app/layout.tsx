@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google"
+import { TwebProvider } from '@/components/thirdweb/thirdweb-provider'
 import { cn } from "@/lib/utils"
 
 import "./globals.css";
@@ -27,7 +28,9 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {children}
+        <TwebProvider>
+          {children}
+        </TwebProvider>
       </body>
     </html>
   );
