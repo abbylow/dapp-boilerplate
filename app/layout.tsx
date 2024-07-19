@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google"
 import { TwebProvider } from '@/components/thirdweb/thirdweb-provider'
+import { Header } from '@/components/site-header'
+import { Toaster } from '@/components/ui/toaster'
 import { cn } from "@/lib/utils"
 
 import "./globals.css";
@@ -29,7 +31,13 @@ export default function RootLayout({
         )}
       >
         <TwebProvider>
-          {children}
+          <div className="relative min-h-screen flex flex-col bg-background">
+            <Header />
+            <main className="flex-1 container">
+              {children}
+            </main>
+            <Toaster />
+          </div>
         </TwebProvider>
       </body>
     </html>
